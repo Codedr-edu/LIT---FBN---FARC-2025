@@ -1,5 +1,3 @@
----
-
 # LIT - FBN - FARC 2025
 
 Repo này là cung cấp code chính thức được team LIT sử dụng trong vòng chung kết cuộc thi FARC 2025 (FPTU AI & Robotics Challenges 2025)
