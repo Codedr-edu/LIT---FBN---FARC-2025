@@ -16,7 +16,7 @@ Repo này là cung cấp code chính thức được team LIT sử dụng trong 
 
 ## Yêu cầu Phần cứng
 
-* **Arduino/ESP32 hoặc Tương đương:** Vi điều khiển để chạy mã.
+* **Mạch BANHMI của MakerViet:** Vi điều khiển để chạy mã.
 * **Tay cầm PS2:** Để điều khiển robot.
 * **Bộ thu PS2:** Giao tiếp với tay cầm PS2.
 * **PCA9685 16-Channel 12-bit PWM/Servo Driver:** Để điều khiển đồng thời nhiều động cơ và servo.
