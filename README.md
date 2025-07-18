@@ -67,7 +67,7 @@ Mạch BANHMI được thiết kế để đơn giản hóa việc kết nối. 
 **Chi tiết các cổng kết nối trên mạch BANHMI:**
 
 Bạn có thể xem cách kết nối thông qua 2 ảnh sơ đồ mạch dưới hoặc hướng dẫn bằng văn bản bên dưới.
-![Hình 1. Sơ đồ mạch](blob:https://www.facebook.com/2783b78c-7a1b-4683-ab27-b4da3c7adb42)
+![Hình 1. Sơ đồ mạch](https://github.com/Codedr-edu/LIT---FBN---FARC-2025/assets/Ảnh chụp màn hình 2025-07-18 193456.png)
 ![Hình 2. Giải thích sơ đồ mạch](blob:https://www.facebook.com/32c5f902-4ec5-4d0f-9d82-4295b55fe8eb)
 
 ### Kết nối PS2 Controller
