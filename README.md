@@ -1,7 +1,19 @@
 # Điều khiển Robot với PS2 và Mạch BANHMI
 
+Dự án này là mã nguồn điểu khiển robot chính thức cho cuộc thi FARC 2025 (FPTU AI & Robotics Challenges 2025) của team LIT - trường TH, THCS & THPT FPT Bắc Ninh - tỉnh Bắc Ninh
+
 Dự án này cung cấp mã nguồn Arduino để điều khiển một nền tảng robot di động bằng **tay cầm PS2**, sử dụng bo mạch điều khiển **BANHMI của MakerViet** để quản lý động cơ và servo. Mạch BANHMI tích hợp **PCA9685** và các driver động cơ, giúp việc kết nối phần cứng trở nên gọn gàng và hiệu quả hơn.
 
+Hãy theo dõi và ủng hộ team LIT trong hành trình chinh phục giải đấu FARC 2025 (FPTU AI & Robotics Challenges 2025). Tìm hiểu và liên hệ với team LIT qua các kênh thông tin sau:
+* Fanpage: [https://www.facebook.com/LITstemclub]
+* Email: [mailto:litrobotics99@gmail.com]
+* SĐT (Nguyễn Tiến Đạt): [tel:+84989241725]
+
+Nếu có thắc mắc về mã nguồn dự án này hoặc cần hỗ trợ xây dựng và triển khai mã nguồn với robot trong cuộc thi FARC 2025 (FPTU AI & Robotics Challenges 2025) xin hãy liên hệ cho:
+* Hoàng Hùng Anh (lập trình viên chính): [tel:+84838630588]
+* Nguyễn Tiến Đạt (Đội trưởng): [tel:+84989241725]
+
+Team Lit xin gửi lời cảm ơn tới tất cả mọi người đã ủng hộ.
 ---
 
 ## Tính năng Chính ✨
@@ -54,6 +66,19 @@ Dự án này cung cấp mã nguồn Arduino để điều khiển một nền t
     * Một dây gọi là **SDA (Serial Data)**: dùng để gửi và nhận dữ liệu.
     * Một dây gọi là **SCL (Serial Clock)**: dùng để đồng bộ hóa tốc độ truyền dữ liệu giữa các thiết bị.
 * Trong dự án này, vi điều khiển trên mạch BANHMI (ví dụ, ESP32) sử dụng I2C để gửi lệnh đến chip PCA9685, và PCA9685 sẽ thực hiện các lệnh đó để điều khiển động cơ và servo.
+
+### Tần số bộ dao động (Oscillator Frequency) 🕰️
+
+* **Bộ dao động (Oscillator)** trong một con chip điện tử giống như một **"nhịp tim"** hoặc **"đồng hồ nội bộ"** của nó. Nó tạo ra các xung điện đều đặn.
+* **Tần số bộ dao động** cho biết nhịp tim đó nhanh hay chậm. Đơn vị thường dùng là Hertz (Hz), kilohertz (kHz) hoặc megahertz (MHz). 1 Hz nghĩa là 1 nhịp mỗi giây.
+* Trong trường hợp của PCA9685, `pwm.setOscillatorFrequency(27000000);` nghĩa là chúng ta đang thiết lập nhịp tim nội bộ của chip PCA9685 để nó hoạt động với tần số **27 triệu nhịp mỗi giây (27 MHz)**. Tần số này là quan trọng vì nó ảnh hưởng đến độ chính xác và tốc độ mà PCA9685 có thể tạo ra các tín hiệu PWM để điều khiển servo và động cơ. Tần số này là một thông số kỹ thuật của chính chip PCA9685.
+
+### Tốc độ xung nhịp (Clock Speed) I2C ⏱️
+
+* Khi nói về `Wire.setClock(400000);`, chúng ta đang nói đến **tốc độ xung nhịp của giao tiếp I2C**.
+* Hãy tưởng tượng I2C là một cuộc trò chuyện giữa hai người (vi điều khiển và PCA9685). **Tốc độ xung nhịp** chính là tốc độ mà họ trao đổi thông tin với nhau. Nó được đo bằng Hertz (Hz), tức là số lần dữ liệu có thể được gửi/nhận mỗi giây.
+* `400000` (400 kHz) có nghĩa là dữ liệu được truyền đi với tốc độ **400 nghìn bit mỗi giây**.
+* **Tốc độ xung nhịp cao hơn** (ví dụ, 400 kHz so với 100 kHz) có nghĩa là các thiết bị có thể giao tiếp và truyền dữ liệu cho nhau **nhanh hơn**. Điều này giúp robot phản hồi nhanh hơn với các lệnh từ tay cầm PS2, vì thông tin từ vi điều khiển đến PCA9685 được truyền đi nhanh chóng.
 
 ---
 
