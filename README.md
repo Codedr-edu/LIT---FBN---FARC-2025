@@ -5,13 +5,13 @@ Dự án này là mã nguồn điểu khiển robot chính thức cho cuộc thi
 Dự án này cung cấp mã nguồn Arduino để điều khiển một nền tảng robot di động bằng **tay cầm PS2**, sử dụng bo mạch điều khiển **BANHMI của MakerViet** để quản lý động cơ và servo. Mạch BANHMI tích hợp **PCA9685** và các driver động cơ, giúp việc kết nối phần cứng trở nên gọn gàng và hiệu quả hơn.
 
 Hãy theo dõi và ủng hộ team LIT trong hành trình chinh phục giải đấu FARC 2025 (FPTU AI & Robotics Challenges 2025). Tìm hiểu và liên hệ với team LIT qua các kênh thông tin sau:
-* Fanpage: [https://www.facebook.com/LITstemclub]
-* Email: [mailto:litrobotics99@gmail.com]
-* SĐT (Nguyễn Tiến Đạt): [tel:+84989241725]
+* Fanpage: [LITstemclub](https://www.facebook.com/LITstemclub)
+* Email: [litrobotics99@gmail.com](mailto:litrobotics99@gmail.com)
+* Zalo (Nguyễn Tiến Đạt): [0989241725](https://zalo.me/0989241725)
 
 Nếu có thắc mắc về mã nguồn dự án này hoặc cần hỗ trợ xây dựng và triển khai mã nguồn với robot trong cuộc thi FARC 2025 (FPTU AI & Robotics Challenges 2025) xin hãy liên hệ cho:
-* Hoàng Hùng Anh (lập trình viên chính): [tel:+84838630588]
-* Nguyễn Tiến Đạt (Đội trưởng): [tel:+84989241725]
+* Hoàng Hùng Anh (lập trình viên chính): [0838630588](https://zalo.me/0838630588)
+* Nguyễn Tiến Đạt (Đội trưởng): [0989241725](https://zalo.me/0989241725)
 
 Team Lit xin gửi lời cảm ơn tới tất cả mọi người đã ủng hộ.
 ---
