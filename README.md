@@ -1,4 +1,4 @@
-# Điều khiển Robot với PS2 và Mạch BANHMI
+# LIT - FBN - FARC 2025 - Điều khiển Robot với PS2 và Mạch BANHMI
 
 Dự án này là mã nguồn điểu khiển robot chính thức cho cuộc thi FARC 2025 (FPTU AI & Robotics Challenges 2025) của team LIT - trường TH, THCS & THPT FPT Bắc Ninh - tỉnh Bắc Ninh
 
