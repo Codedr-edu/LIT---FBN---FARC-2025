@@ -22,7 +22,7 @@ Repo này cung cấp mã nguồn Arduino để điều khiển robot bằng **ta
 * **Mạch BANHMI (MakerViet):** Đây là bo mạch điều khiển chính, tích hợp PCA9685 và các driver động cơ cần thiết.
 * **Tay cầm PS2:** Để điều khiển robot.
 * **Bộ thu PS2:** Giao tiếp với tay cầm PS2.
-* **Động cơ DC:** Bốn động cơ cho bánh xe (hai cho mỗi bên).
+* **Động cơ DC (300 RPM):** Bốn động cơ cho bánh xe (hai cho mỗi bên).
 * **Động cơ DC (180 RPM):** Hai động cơ cho cơ cấu nâng/thả.
 * **Servo Motors:** Bốn servo cho các cơ cấu cổng chắn vật.
 * **Nguồn điện:** Thích hợp cho mạch BANHMI, động cơ và servo.
@@ -32,7 +32,7 @@ Repo này cung cấp mã nguồn Arduino để điều khiển robot bằng **ta
 
 ## Cấu hình Chân cắm trên Mạch BANHMI
 
-Mạch BANHMI được thiết kế để đơn giản hóa việc kết nối. Các chân PS2 và các kênh PWM cho động cơ/servo đã được định nghĩa và kết nối sẵn trên mạch.
+Mạch BANHMI được thiết kế để đơn giản hóa việc kết nối. Các chân PS2 và các kênh xung cho động cơ/servo đã được định nghĩa và kết nối sẵn trên mạch.
 
 ### Kết nối PS2 Controller
 
@@ -45,11 +45,11 @@ Mạch BANHMI có các chân chuyên dụng cho bộ thu PS2. Vui lòng tham kh�
 | `PS2_SEL`      | 15                              |
 | `PS2_CLK`      | 14                              |
 
-### Các kênh PWM của PCA9685 trên Mạch BANHMI
+### Các kênh xung của PCA9685 trên Mạch BANHMI
 
-Mạch BANHMI sử dụng chip PCA9685 để mở rộng chân PWM. Các kênh này sẽ được kết nối trực tiếp đến các cổng động cơ và servo trên mạch BANHMI.
+Mạch BANHMI sử dụng chip PCA9685 để mở rộng chân xung. Các kênh này sẽ được kết nối trực tiếp đến các cổng động cơ và servo trên mạch BANHMI.
 
-| Chức năng Động cơ | Kênh PWM của PCA9685 |
+| Chức năng Động cơ | Kênh xung của PCA9685 |
 | :---------------- | :------------------- |
 | `LEFT_FORWARD`    | 8                    |
 | `LEFT_BACKWARD`   | 9                    |
@@ -60,7 +60,7 @@ Mạch BANHMI sử dụng chip PCA9685 để mở rộng chân PWM. Các kênh n
 | `LIFT_UP_2`       | 14                   |
 | `LIFT_DOWN_2`     | 15                   |
 
-| Chức năng Servo  | Kênh PWM của PCA9685 |
+| Chức năng Servo  | Kênh xung của PCA9685 |
 | :---------------- | :------------------- |
 | `SERVO_GATE`      | 2                    |
 | `SERVO_GATE1`     | 3                    |
@@ -101,8 +101,8 @@ Bạn cần cài đặt các thư viện sau trong Arduino IDE (đi tới `Sketc
 
 ### Hằng số và Khai báo
 
-* Các hằng số `#define` định nghĩa các chân cho kết nối PS2 và các kênh PWM trên PCA9685 (tích hợp trên BANHMI) cho cả động cơ và servo.
-* Đối tượng `Adafruit_PWMServoDriver pwm` được khởi tạo để giao tiếp với PCA9685.
+* Các hằng số `#define` định nghĩa các chân cho kết nối PS2 và các kênh xung trên PCA9685 (tích hợp trên BANHMI) cho cả động cơ và servo.
+* Đối tượng `Adafruit_PWMServoDriver PWM` được khởi tạo để giao tiếp với PCA9685.
 * Đối tượng `PS2X ps2x` được khởi tạo để giao tiếp với tay cầm PS2.
 * Các biến `isGateOpen`, `isGateOpen1` theo dõi trạng thái đóng/mở của các cổng servo.
 
@@ -114,8 +114,8 @@ Chức năng tiện ích này chuyển đổi một góc (0-180 độ) thành gi
 
 * Khởi tạo giao tiếp Serial với tốc độ baud `115200` để gỡ lỗi.
 * Thiết lập kết nối PS2 với logic thử lại. Nếu không kết nối được, chương trình sẽ dừng lại.
-* Khởi tạo chip PCA9685 (`pwm.begin()`) tích hợp trên mạch BANHMI.
-* Thiết lập tần số bộ dao động là **27MHz** và tần số PWM là **50Hz** (tiêu chuẩn cho servo).
+* Khởi tạo chip PCA9685 (`PWM.begin()`) tích hợp trên mạch BANHMI.
+* Thiết lập tần số bộ dao động là **27MHz** và tần số xung là **50Hz** (tiêu chuẩn cho servo).
 * Đặt tốc độ xung nhịp I2C thành **400kHz** để giao tiếp nhanh hơn.
 * Đặt vị trí ban đầu cho `SERVO_GATE2` và `SERVO_GATE3`.
 * Đặt các biến trạng thái cổng servo thành `false` (đóng).
@@ -123,34 +123,34 @@ Chức năng tiện ích này chuyển đổi một góc (0-180 độ) thành gi
 
 ### `stopAll()`
 
-Chức năng này đặt tất cả các đầu ra PWM của động cơ di chuyển và động cơ nâng/thả về **0**, đảm bảo chúng dừng hoạt động.
+Chức năng này đặt tất cả các đầu ra xung của động cơ di chuyển và động cơ nâng/thả về **0**, đảm bảo chúng dừng hoạt động.
 
 ### `loop()`
 
 * `ps2x.read_gamepad()` đọc trạng thái hiện tại của tay cầm PS2.
 * **Điều khiển Di chuyển:**
     * Đọc giá trị thô từ joystick bên phải (`PSS_RX`, `PSS_LY`).
-    * Điều chỉnh các giá trị và áp dụng một **deadzone** để ngăn chặn trôi nhẹ.
+    * Điều chỉnh các giá trị và áp dụng một **deadzone (vùng chết chống trôi)** để ngăn chặn trôi nhẹ.
     * Tính toán tốc độ của bánh trái và phải bằng điều khiển vi sai.
-    * Ánh xạ tốc độ thành giá trị PWM (0 đến 2730) và điều khiển riêng từng động cơ (`_FORWARD` hoặc `_BACKWARD`) thông qua các cổng động cơ trên mạch BANHMI.
+    * Ánh xạ tốc độ thành giá trị xung (0 đến 2730) và điều khiển riêng từng động cơ (`_FORWARD` hoặc `_BACKWARD`) thông qua các cổng động cơ trên mạch BANHMI.
 * **Điều khiển Nâng/Thả:**
-    * Kiểm tra các nút **R2** và **R1** để kích hoạt các cặp động cơ nâng/thả với tốc độ PWM tối đa (2730).
+    * Kiểm tra các nút **R2** và **R1** để kích hoạt các cặp động cơ nâng/thả với tốc độ xung tối đa (2730).
     * Nếu không có nút nào được nhấn, tất cả các động cơ nâng/thả đều dừng.
 * **Điều khiển Servo Cổng Chắn Vật:**
     * Khi **L1** được nhấn, trạng thái của `SERVO_GATE` và `SERVO_GATE1` sẽ được chuyển đổi. Có một độ trễ ngắn và servo được đặt về vị trí trung tâm sau khi di chuyển.
     * Khi **L2** được nhấn, trạng thái của `SERVO_GATE2` và `SERVO_GATE3` sẽ được chuyển đổi.
-* **Debug Serial:** In các giá trị joystick, tốc độ PWM của bánh xe và trạng thái cổng servo ra Serial Monitor.
+* **Debug Serial:** In các giá trị joystick, tốc độ xung của bánh xe và trạng thái cổng servo ra Serial Monitor (Trình theo dõi).
 * Một độ trễ `delay(30)`ms được thêm vào để ổn định chu kỳ điều khiển.
 
 ---
 
 ## Cân nhắc và Cải tiến
 
-* **Hiệu chỉnh Servo:** Các giá trị PWM cho servo cần được hiệu chỉnh chính xác để đảm bảo chuyển động mượt mà và chính xác.
+* **Hiệu chỉnh Servo:** Các giá trị xung cho servo cần được hiệu chỉnh chính xác để đảm bảo chuyển động mượt mà và chính xác.
 * **Chế độ tay cầm PS2:** Đảm bảo tay cầm PS2 của bạn ở chế độ **Analog** (đèn báo màu đỏ trên tay cầm).
 * **Quản lý Nguồn:** Mạch BANHMI đã có các driver động cơ tích hợp, nhưng bạn vẫn cần đảm bảo nguồn điện cấp cho mạch đủ mạnh để vận hành tất cả các động cơ và servo dưới tải.
 * **Độ trễ:** Độ trễ `30ms` trong `loop()` là hợp lý nhưng có thể được điều chỉnh để tối ưu hóa độ phản hồi và tải CPU.
-* **Hạn chế tốc độ PWM:** Giá trị PWM tối đa `2730` cần phù hợp với động cơ của bạn để tránh quá tải.
+* **Hạn chế tốc độ xung:** Giá trị xung tối đa `2730` cần phù hợp với động cơ của bạn để tránh quá tải.
 * **Cải tiến điều khiển cổng:** Logic điều khiển servo hiện tại có thể cần được tinh chỉnh để có chuyển động mượt mà hơn và tránh bị rung lắc.
 
 ---
