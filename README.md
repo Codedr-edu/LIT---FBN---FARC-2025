@@ -4,16 +4,6 @@ Dự án này là mã nguồn điểu khiển robot chính thức cho cuộc thi
 
 Dự án này cung cấp mã nguồn Arduino để điều khiển một nền tảng robot di động bằng **tay cầm PS2**, sử dụng bo mạch điều khiển **BANHMI của MakerViet** để quản lý động cơ và servo. Mạch BANHMI tích hợp **PCA9685** và các driver động cơ, giúp việc kết nối phần cứng trở nên gọn gàng và hiệu quả hơn.
 
-Hãy theo dõi và ủng hộ team LIT trong hành trình chinh phục giải đấu FARC 2025 (FPTU AI & Robotics Challenges 2025). Tìm hiểu và liên hệ với team LIT qua các kênh thông tin sau:
-* Fanpage: [LITstemclub](https://www.facebook.com/LITstemclub)
-* Email: [litrobotics99@gmail.com](mailto:litrobotics99@gmail.com)
-* Zalo (Nguyễn Tiến Đạt): [0989241725](https://zalo.me/0989241725)
-
-Nếu có thắc mắc về mã nguồn dự án này hoặc cần hỗ trợ xây dựng và triển khai mã nguồn với robot trong cuộc thi FARC 2025 (FPTU AI & Robotics Challenges 2025) xin hãy liên hệ cho:
-* Hoàng Hùng Anh (lập trình viên chính): [0838630588](https://zalo.me/0838630588)
-* Nguyễn Tiến Đạt (Đội trưởng): [0989241725](https://zalo.me/0989241725)
-
-Team Lit xin gửi lời cảm ơn tới tất cả mọi người đã ủng hộ.
 ---
 
 ## Tính năng Chính ✨
@@ -235,5 +225,17 @@ Chức năng này là một hàm đơn giản có nhiệm vụ **dừng tất c�
 * **Tối ưu độ trễ:** Độ trễ `30ms` trong `loop()` là hợp lý cho nhiều ứng dụng, nhưng bạn có thể thử điều chỉnh nó để xem có cải thiện được độ phản hồi của robot hay không.
 * **Hạn chế tốc độ PWM:** Giá trị PWM tối đa `2730` được dùng để điều khiển tốc độ động cơ. Hãy đảm bảo rằng giá trị này an toàn cho động cơ của bạn và không gây quá tải cho mạch BANHMI.
 * **Cải tiến điều khiển cổng:** Logic điều khiển servo hiện tại có một độ trễ và đặt lại về vị trí trung tâm. Tùy thuộc vào cơ cấu cổng của bạn, bạn có thể muốn tinh chỉnh phần này để có chuyển động mượt mà hơn hoặc giữ servo ở vị trí cuối cùng thay vì trung tâm.
+  
+---
+## From Team LIT 🔥
 
-Nếu bạn có bất kỳ câu hỏi nào khác hoặc cần giải thích chi tiết hơn về một phần cụ thể, đừng ngần ngại hỏi nhé!
+Hãy theo dõi và ủng hộ team LIT trong hành trình chinh phục giải đấu FARC 2025 (FPTU AI & Robotics Challenges 2025). Tìm hiểu và liên hệ với team LIT qua các kênh thông tin sau:
+* Fanpage: [LITstemclub](https://www.facebook.com/LITstemclub)
+* Email: [litrobotics99@gmail.com](mailto:litrobotics99@gmail.com)
+* Zalo (Nguyễn Tiến Đạt): [0989241725](https://zalo.me/0989241725)
+
+Nếu có thắc mắc về mã nguồn dự án này hoặc cần hỗ trợ xây dựng và triển khai mã nguồn với robot trong cuộc thi FARC 2025 (FPTU AI & Robotics Challenges 2025) xin hãy liên hệ cho:
+* Hoàng Hùng Anh (lập trình viên chính): [0838630588](https://zalo.me/0838630588)
+* Nguyễn Tiến Đạt (Đội trưởng): [0989241725](https://zalo.me/0989241725)
+
+Team Lit xin gửi lời cảm ơn tới tất cả mọi người đã ủng hộ.
