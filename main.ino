@@ -162,14 +162,14 @@ void loop() {
     if (!isGateOpen){
       pwm.writeMicroseconds(SERVO_GATE, 1000);
       pwm.writeMicroseconds(SERVO_GATE1, 2000);
-      delay(492);
+      delay(1000);
       pwm.writeMicroseconds(SERVO_GATE, 1500);
       pwm.writeMicroseconds(SERVO_GATE1, 1500);
       isGateOpen = true;
     } else {
       pwm.writeMicroseconds(SERVO_GATE, 2000);
       pwm.writeMicroseconds(SERVO_GATE1, 1000);
-      delay(492);
+      delay(1000);
       pwm.writeMicroseconds(SERVO_GATE, 1500);
       pwm.writeMicroseconds(SERVO_GATE1, 1500);
       isGateOpen = false;
